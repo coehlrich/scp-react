@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/scp-react/static/css/main.e6c13ad2.css",
+    "main.js": "/scp-react/static/js/main.83f8d413.js",
+    "static/js/787.8b882152.chunk.js": "/scp-react/static/js/787.8b882152.chunk.js",
+    "index.html": "/scp-react/index.html",
+    "main.e6c13ad2.css.map": "/scp-react/static/css/main.e6c13ad2.css.map",
+    "main.83f8d413.js.map": "/scp-react/static/js/main.83f8d413.js.map",
+    "787.8b882152.chunk.js.map": "/scp-react/static/js/787.8b882152.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.83f8d413.js"
+  ]
+}
