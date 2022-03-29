@@ -66,7 +66,7 @@ function ParseFormattedText({formattedText}) {
             );
         case "image":
             return(
-                <img src={formattedText.name} alt={formattedText.alt}/>
+                <img src={formattedText.name} alt={formattedText.alt} className="img-fluid"/>
             )
         case "bold":
             return(
