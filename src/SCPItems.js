@@ -91,7 +91,6 @@ function ParseRoot({formattedText}) {
                 </p>
             )
     }
-    return null;
 }
 
 function Image({enabled, image, name}) {
