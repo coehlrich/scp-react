@@ -20,19 +20,9 @@ const Data = JSON.map(
                                 <h3>{section.name}:</h3>
                                 {section.content.map(
                                     (paragraph) => {
-                                        let content;
-                                        switch (paragraph.type) {
-                                            case "code":
-                                                content = <code>
-                                                    {paragraph.text}
-                                                </code>
-                                                break;
-                                            default:
-                                                content = paragraph.text
-                                        }
                                         return(
                                             <p key={paragraph.id}>
-                                                {content}
+                                                <ParseFormattedText formattedText={paragraph}/>
                                             </p>
                                         );
                                     }
@@ -46,10 +36,44 @@ const Data = JSON.map(
     }
 )
 
-function Image(args) {
-    if (args.enabled != null) {
+function ParseFormattedText({formattedText}) {
+    if (typeof formattedText === "string") {
+        return formattedText;
+    }
+    switch (formattedText.type) {
+        case "code":
+            return(
+                <code>
+                    <ParseFormattedText formattedText={formattedText.content} />
+                </code>
+            );
+        case "image":
+            return(
+                <img src={formattedText.name} alt={formattedText.alt}/>
+            )
+        case "bold":
+            return(
+                <b>
+                    <ParseFormattedText formattedText={formattedText.content} />
+                </b>
+            )
+        case "list":
+            return formattedText.content.map(
+                (subformattedText) => {
+                    return(
+                        <ParseFormattedText key={subformattedText.id} formattedText={subformattedText} />
+                    );
+                }
+            );
+        default:
+            return formattedText.content;
+    }
+}
+
+function Image({enabled, image, name}) {
+    if (enabled != null) {
         return(
-            <img src={args.image} alt={args.name}/>
+            <img src={image} alt={name}/>
         )
     } else {
         return null;
@@ -94,11 +118,11 @@ function SCPItems() {
             {item}
             <nav area-label="items">
                 <ul className="pagination">
-                    <Page url={"/scp-items/" + (previous ? JSON[index - 1].scpNumber + 1 : "")} enabled={previous}>
+                    <Page url={"/scp-items/" + (previous ? JSON[index - 1].scpNumber : "")} enabled={previous}>
                         Previous
                     </Page>
                     {Pages}
-                    <Page url={"/scp-items/" + (next ? JSON[index + 1].scpNumber + 1 : "")} enabled={next}>
+                    <Page url={"/scp-items/" + (next ? JSON[index + 1].scpNumber : "")} enabled={next}>
                         Next
                     </Page>
                 </ul>
