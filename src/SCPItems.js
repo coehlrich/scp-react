@@ -107,7 +107,7 @@ function ParseRoot({formattedText}) {
 function Image({enabled, image, name}) {
     if (enabled) {
         return(
-            <img src={image} alt={name}/>
+            <img src={image} alt={name} className="img-fluid"/>
         )
     } else {
         return null;
