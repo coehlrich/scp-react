@@ -12,21 +12,32 @@ const Data = JSON.map(
                 <h1>Item #: {name}</h1>
                 <br />
                 <h2>Object Class: {data.class}</h2>
+                <br />
 
-                <Image enabled={data.image != null} image={data.image} alt={name} />
+                <Image enabled={data.image != null} image={data.image} name={name} />
 
-                {data.sections.map(
-                    (section) => {
-                        return(
-                            <div key={section.name}>
-                                <h3>{section.name}:</h3>
-                                {section.content.map(
-                                    (paragraph) => <ParseRoot key={paragraph.id} formattedText={paragraph} />
-                                )}
-                            </div>
-                        );
-                    }
-                )}
+                <div className="accordion">
+                    {data.sections.map(
+                        (section) => {
+                            return(
+                                <div key={section.id} className="accordion-item">
+                                    <h3 className="accordion-header" id={"heading" + section.id}>
+                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={"#collapse" + section.id} aria-expanded="true" aria-controls={"collapse" + section.id}>
+                                            {section.name}
+                                        </button>
+                                    </h3>
+                                    <div id={"collapse" + section.id} className="accordion-collapse collapse" aria-labelledby={"heading" + section.id}>
+                                        <div className="accordion-body">
+                                            {section.content.map(
+                                                (paragraph) => <ParseRoot key={paragraph.id} formattedText={paragraph} />
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        }
+                    )}
+                </div>
             </div>
         );
     }
@@ -94,7 +105,7 @@ function ParseRoot({formattedText}) {
 }
 
 function Image({enabled, image, name}) {
-    if (enabled != null) {
+    if (enabled) {
         return(
             <img src={image} alt={name}/>
         )
@@ -139,6 +150,7 @@ function SCPItems() {
     return(
         <div>
             {item}
+            <br />
             <nav area-label="items">
                 <ul className="pagination">
                     <Page url={"/scp-items/" + (previous ? JSON[index - 1].scpNumber : "")} enabled={previous}>

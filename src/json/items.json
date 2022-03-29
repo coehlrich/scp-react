@@ -6,6 +6,7 @@
       "sections": [
         {
             "name": "Special Containment Procedures",
+            "id": 1,
             "content": [
                 {
                     "id": 1,
@@ -23,6 +24,7 @@
         },
         {
             "name": "Description",
+            "id": 2,
             "content": [
                 {
                     "id": 1,
@@ -36,6 +38,7 @@
         },
         {
             "name": "Reference",
+            "id": 3,
             "content": [
                 {
                     "id": 1,
@@ -91,6 +94,7 @@
         "sections": [
             {
                 "name": "Special Containment Procedures",
+                "id": 1,
                 "content": [
                     {
                         "id": 1,
@@ -112,6 +116,7 @@
             },
             {
                 "name": "Description",
+                "id": 2,
                 "content": [
                     {
                         "id": 1,
@@ -173,6 +178,7 @@
             },
             {
                 "name": "Addendum 003-01",
+                "id": 3,
                 "content": [
                     {
                         "id": 1,
@@ -182,6 +188,7 @@
             },
             {
                 "name": "Addendum 003-02",
+                "id": 4,
                 "content": [
                     {
                         "id": 1,
@@ -191,6 +198,7 @@
             },
             {
                 "name": "Addendum 003-03",
+                "id": 5,
                 "content": [
                     {
                         "id": 1,
@@ -200,6 +208,7 @@
             },
             {
                 "name": "Addendum 003-04",
+                "id": 6,
                 "content": [
                     {
                         "id": 1,
@@ -225,6 +234,7 @@
             },
             {
                 "name": "Addendum 003-05",
+                "id": 7,
                 "content": [
                     {
                         "id": 1,
@@ -240,6 +250,7 @@
         "sections": [
             {
                 "name": "Special Containment Procedures",
+                "id": 1,
                 "content": [
                     {
                         "id": 1,
@@ -253,6 +264,7 @@
             },
             {
                 "name": "Description",
+                "id": 2,
                 "content": [
                     {
                         "id": 1,
@@ -268,6 +280,7 @@
             },
             {
                 "name": "Chronological History",
+                "id": 3,
                 "content": [
                     {
                         "id": 1,
@@ -472,6 +485,7 @@
             },
             {
                 "name": "Space-Time Anomalies",
+                "id": 4,
                 "content": [
                     {
                         "id": 1,
@@ -481,6 +495,7 @@
             },
             {
                 "name": "Additional Notes",
+                "id": 5,
                 "content": [
                     {
                         "id": 1,
@@ -494,6 +509,7 @@
             },
             {
                 "name": "Appendix A: Mental Health Effects of SCP-004-12",
+                "id": 6,
                 "content": [
                     {
                         "id": 1,
@@ -503,6 +519,7 @@
             },
             {
                 "name": "Appendix B: Additional Information",
+                "id": 7,
                 "content": [
                     {
                         "id": 1,
@@ -578,6 +595,7 @@
         "sections": [
             {
                 "name":"Special Containment Procedures",
+                "id": 1,
                 "content": [
                     {
                         "id": 1,
@@ -587,6 +605,7 @@
             },
             {
                 "name": "Description",
+                "id": 2,
                 "content": [
                     {
                         "id": 1,
@@ -602,6 +621,7 @@
             },
             {
                 "name": "Additional Notes",
+                "id": 3,
                 "content": [
                     {
                         "id": 1,
@@ -611,6 +631,7 @@
             },
             {
                 "name": "Appendix A",
+                "id": 4,
                 "content": [
                     {
                         "id": 1,
@@ -626,6 +647,7 @@
         "sections": [
             {
                 "name": "Special Containment Procedures",
+                "id": 1,
                 "content": [
                     {
                         "id": 1,
@@ -657,6 +679,7 @@
             },
             {
                 "name": "Description",
+                "id": 2,
                 "content": [
                     {
                         "id": 1,
