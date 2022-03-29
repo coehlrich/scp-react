@@ -9,7 +9,9 @@ const Data = JSON.map(
         });
         return(
             <div key={data.scpNumber}>
-                <h2>Item #: {name}</h2>
+                <h1>Item #: {name}</h1>
+                <br />
+                <h2>Object Class: {data.class}</h2>
 
                 <Image enabled={data.image != null} image={data.image} alt={name} />
 
@@ -19,13 +21,7 @@ const Data = JSON.map(
                             <div key={section.name}>
                                 <h3>{section.name}:</h3>
                                 {section.content.map(
-                                    (paragraph) => {
-                                        return(
-                                            <p key={paragraph.id}>
-                                                <ParseFormattedText formattedText={paragraph}/>
-                                            </p>
-                                        );
-                                    }
+                                    (paragraph) => <ParseRoot key={paragraph.id} formattedText={paragraph} />
                                 )}
                             </div>
                         );
@@ -35,6 +31,16 @@ const Data = JSON.map(
         );
     }
 )
+
+function ParseList({formattedText, formatApply}) {
+    return formattedText.content.map(
+        (subformattedText) => {
+            return formatApply(
+                <ParseFormattedText key={subformattedText.id} formattedText={subformattedText} />
+            , subformattedText.id);
+        }
+    );
+}
 
 function ParseFormattedText({formattedText}) {
     if (typeof formattedText === "string") {
@@ -58,16 +64,34 @@ function ParseFormattedText({formattedText}) {
                 </b>
             )
         case "list":
-            return formattedText.content.map(
-                (subformattedText) => {
-                    return(
-                        <ParseFormattedText key={subformattedText.id} formattedText={subformattedText} />
-                    );
-                }
+            return(
+                <ParseList formattedText={formattedText} formatApply={(subFormattedText, id) => subFormattedText} />
             );
         default:
             return formattedText.content;
     }
+}
+
+function ParseRoot({formattedText}) {
+    switch (formattedText.type) {
+        case "ordered":
+            return(
+                <ol>
+                    <ParseList formattedText={formattedText} formatApply={(subFormattedText, id) => 
+                        <li key={id}>
+                            {subFormattedText}
+                        </li>
+                    } />
+                </ol>
+            );
+        default:
+            return(
+                <p>
+                    <ParseFormattedText formattedText={formattedText} />
+                </p>
+            )
+    }
+    return null;
 }
 
 function Image({enabled, image, name}) {
