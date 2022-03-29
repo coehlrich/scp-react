@@ -65,7 +65,7 @@ function Page(args) {
 }
 
 function SCPItems() {
-    let number = parseInt(useMatch("/scp-react/scp-items/:item").params.item);
+    let number = parseInt(useMatch("/scp-items/:item").params.item);
     let index = JSON.findIndex(
         (item) => {
             return item.scpNumber === number;
@@ -83,7 +83,7 @@ function SCPItems() {
     const Pages = JSON.map(
         (item) => {
             return(
-                <Page url={"/scp-react/scp-items/" + item.scpNumber} enabled={item.scpNumber !== number} key={item.scpNumber}>
+                <Page url={"/scp-items/" + item.scpNumber} enabled={item.scpNumber !== number} key={item.scpNumber}>
                     {item.scpNumber}
                 </Page>
             );
@@ -94,11 +94,11 @@ function SCPItems() {
             {item}
             <nav area-label="items">
                 <ul className="pagination">
-                    <Page url={"/scp-react/scp-items/" + (previous ? JSON[index - 1].scpNumber + 1 : "")} enabled={previous}>
+                    <Page url={"/scp-items/" + (previous ? JSON[index - 1].scpNumber + 1 : "")} enabled={previous}>
                         Previous
                     </Page>
                     {Pages}
-                    <Page url={"/scp-react/scp-items/" + (next ? JSON[index + 1].scpNumber + 1 : "")} enabled={next}>
+                    <Page url={"/scp-items/" + (next ? JSON[index + 1].scpNumber + 1 : "")} enabled={next}>
                         Next
                     </Page>
                 </ul>

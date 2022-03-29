@@ -1,6 +1,6 @@
 import Home from "./Home";
 import Nav from "./Nav";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { HashRouter as Router, Routes, Route} from "react-router-dom";
 import SCPItems from "./SCPItems";
 
 function App() {
@@ -9,8 +9,8 @@ function App() {
       <Router>
         <Nav />
         <Routes>
-          <Route path="/scp-react" element={<Home />}/>
-          <Route path="/scp-react/scp-items/:1" element={<SCPItems />}/>
+          <Route path="/" element={<Home />}/>
+          <Route path="/scp-items/:1" element={<SCPItems />}/>
         </Routes>
       </Router>
     </div>
